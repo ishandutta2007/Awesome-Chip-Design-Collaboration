@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080c14" />
+      <stop offset="50%" stop-color="#0d1527" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+
+    <!-- Glowing Accent Gradients -->
+    <linearGradient id="cyanPurpleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff">
+        <animate attributeName="stop-color" values="#00f0ff;#7928ca;#ff0080;#00f0ff" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#ff0080">
+        <animate attributeName="stop-color" values="#ff0080;#00f0ff;#7928ca;#ff0080" dur="8s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="circuitGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0, 240, 255, 0.07)" stroke-width="1" />
+      <circle cx="40" cy="40" r="1.5" fill="rgba(0, 240, 255, 0.2)" />
+    </pattern>
+
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    @keyframes pulseTrace {
+      0% { stroke-dashoffset: 600; opacity: 0.2; }
+      50% { stroke-dashoffset: 0; opacity: 0.9; }
+      100% { stroke-dashoffset: -600; opacity: 0.2; }
+    }
+    @keyframes rotateWafer {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes floatChip {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes beamScan {
+      0% { transform: translateX(-100px); opacity: 0; }
+      50% { opacity: 0.6; }
+      100% { transform: translateX(1300px); opacity: 0; }
+    }
+    .trace-line {
+      stroke-dasharray: 80 120;
+      animation: pulseTrace 6s linear infinite;
+    }
+    .wafer-rot {
+      transform-origin: 1040px 180px;
+      animation: rotateWafer 25s linear infinite;
+    }
+    .chip-float {
+      animation: floatChip 5s ease-in-out infinite;
+    }
+    .scan-beam {
+      animation: beamScan 7s ease-in-out infinite;
+    }
+  </style>
+
+  <!-- Background -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)" />
+  <rect width="1200" height="360" rx="16" fill="url(#circuitGrid)" />
+
+  <!-- Animated Scan Beam -->
+  <rect class="scan-beam" y="0" width="80" height="360" fill="url(#cyanPurpleGrad)" opacity="0.08" filter="url(#glow)" />
+
+  <!-- PCB / Silicon Circuit Traces (Left &amp; Background) -->
+  <g stroke="#00f0ff" stroke-width="1.5" fill="none" opacity="0.4">
+    <path d="M 0 60 L 180 60 L 240 120 L 400 120" />
+    <path d="M 0 140 L 120 140 L 180 200 L 320 200" />
+    <path d="M 0 300 L 220 300 L 280 240 L 450 240" />
+    <circle cx="180" cy="60" r="3" fill="#00f0ff" />
+    <circle cx="240" cy="120" r="3" fill="#00f0ff" />
+    <circle cx="180" cy="200" r="3" fill="#00f0ff" />
+    <circle cx="280" cy="240" r="3" fill="#00f0ff" />
+  </g>
+
+  <g stroke="#ff0080" stroke-width="2" fill="none" class="trace-line">
+    <path d="M 0 60 L 180 60 L 240 120 L 400 120" />
+    <path d="M 0 300 L 220 300 L 280 240 L 450 240" />
+  </g>
+
+  <!-- Silicon Wafer / Die Visualization (Right Side) -->
+  <g class="wafer-rot" opacity="0.45">
+    <circle cx="1040" cy="180" r="130" fill="none" stroke="url(#cyanPurpleGrad)" stroke-width="2" stroke-dasharray="8 6" />
+    <circle cx="1040" cy="180" r="100" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.3" />
+    <circle cx="1040" cy="180" r="70" fill="none" stroke="#7928ca" stroke-width="1.5" stroke-opacity="0.5" />
+    <path d="M 1040 50 L 1040 310 M 910 180 L 1170 180 M 948 88 L 1132 272 M 948 272 L 1132 88" stroke="rgba(0, 240, 255, 0.2)" stroke-width="1" />
+  </g>
+
+  <!-- Central Floating Chip / IC Die Graphic -->
+  <g class="chip-float" transform="translate(1040, 180)">
+    <!-- IC Outer Package -->
+    <rect x="-55" y="-55" width="110" height="110" rx="10" fill="#091322" stroke="url(#cyanPurpleGrad)" stroke-width="3" filter="url(#glow)" />
+    <!-- IC Pins -->
+    <g fill="#00f0ff" opacity="0.8">
+      <rect x="-40" y="-62" width="6" height="7" rx="1" />
+      <rect x="-20" y="-62" width="6" height="7" rx="1" />
+      <rect x="0" y="-62" width="6" height="7" rx="1" />
+      <rect x="20" y="-62" width="6" height="7" rx="1" />
+      <rect x="34" y="-62" width="6" height="7" rx="1" />
+
+      <rect x="-40" y="55" width="6" height="7" rx="1" />
+      <rect x="-20" y="55" width="6" height="7" rx="1" />
+      <rect x="0" y="55" width="6" height="7" rx="1" />
+      <rect x="20" y="55" width="6" height="7" rx="1" />
+      <rect x="34" y="55" width="6" height="7" rx="1" />
+
+      <rect x="-62" y="-40" width="7" height="6" rx="1" />
+      <rect x="-62" y="-20" width="7" height="6" rx="1" />
+      <rect x="-62" y="0" width="7" height="6" rx="1" />
+      <rect x="-62" y="20" width="7" height="6" rx="1" />
+      <rect x="-62" y="34" width="7" height="6" rx="1" />
+
+      <rect x="55" y="-40" width="7" height="6" rx="1" />
+      <rect x="55" y="-20" width="7" height="6" rx="1" />
+      <rect x="55" y="0" width="7" height="6" rx="1" />
+      <rect x="55" y="20" width="7" height="6" rx="1" />
+      <rect x="55" y="34" width="7" height="6" rx="1" />
+    </g>
+    <!-- IC Core Core Grid -->
+    <rect x="-35" y="-35" width="70" height="70" rx="4" fill="#0d1b33" stroke="#00f0ff" stroke-width="1.2" />
+    <path d="M -35 -10 L 35 -10 M -35 15 L 35 15 M -10 -35 L -10 35 M 15 -35 L 15 35" stroke="rgba(0, 240, 255, 0.4)" stroke-width="1" />
+    <circle cx="0" cy="0" r="10" fill="url(#cyanPurpleGrad)" filter="url(#softGlow)">
+      <animate attributeName="r" values="8;13;8" dur="3s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- Typography &amp; Badges -->
+  <g transform="translate(80, 0)">
+    <!-- Pill Badge -->
+    <g transform="translate(0, 52)">
+      <rect width="320" height="32" rx="16" fill="rgba(0, 240, 255, 0.1)" stroke="rgba(0, 240, 255, 0.4)" stroke-width="1" />
+      <circle cx="16" cy="16" r="5" fill="#00f0ff">
+        <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <text x="32" y="21" fill="#00f0ff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5">SEMICONDUCTOR &amp; EDA ECOSYSTEM</text>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="140" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="38" font-weight="900" letter-spacing="-0.5">
+      Awesome Chip Design
+    </text>
+    <text x="0" y="190" fill="url(#cyanPurpleGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="38" font-weight="900" letter-spacing="-0.5" filter="url(#softGlow)">
+      Collaboration
+    </text>
+
+    <!-- Subtitle / Tagline -->
+    <text x="0" y="238" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="16" font-weight="400">
+      Curated index of SaaS Platforms, EDA Cloud, RTL-to-GDS Workflows &amp; Open Silicon Tools
+    </text>
+
+    <!-- Feature Tags -->
+    <g transform="translate(0, 275)">
+      <!-- Tag 1 -->
+      <rect x="0" y="0" width="135" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="12" y="18" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600">⚡ IC Data Mgmt</text>
+
+      <!-- Tag 2 -->
+      <rect x="145" y="0" width="125" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="157" y="18" fill="#a78bfa" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600">🛡️ IP Lifecycle</text>
+
+      <!-- Tag 3 -->
+      <rect x="280" y="0" width="135" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="292" y="18" fill="#34d399" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600">🚀 RTL-to-GDSII</text>
+
+      <!-- Tag 4 -->
+      <rect x="425" y="0" width="130" height="28" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1" />
+      <text x="437" y="18" fill="#fbbf24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600">🌐 Cloud EDA</text>
+    </g>
+  </g>
+
+  <!-- Border Accent -->
+  <rect x="1" y="1" width="1198" height="358" rx="15" fill="none" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.5" />
+</svg>
