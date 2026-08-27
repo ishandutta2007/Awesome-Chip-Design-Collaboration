@@ -14,41 +14,25 @@ This repository tracks notable **SaaS platforms** and **open-source projects** f
 Contributions welcome! Open a PR to add/update entries. Keep descriptions factual and link to official sites.
 
 ## Table of Contents
-- [SaaS/Hosted Platforms](#saas-products)
+- [SaaS/Hosted Platforms](#saashosted-platforms)
 - [Open-Source GitHub Projects](#open-source-github-projects)
 - [How to Contribute](#how-to-contribute)
 - [Disclaimer](#disclaimer)
 
 ## SaaS/Hosted Platforms
-- **[Altium 365](https://www.altium.com/altium-365)**  
-  Cloud collaboration platform for PCB and electronics design — shared workspaces, version control, review, and supply-chain data tightly integrated with Altium Designer.
 
-- **[Cadence Cloud](https://www.cadence.com/)**  
-  Cloud and collaboration offerings around Cadence EDA tools for design, verification, and team productivity in IC and system design.
-
-- **[Siemens Teamcenter EDA](https://www.siemens.com/)**  
-  Design data management and PLM capabilities for electronics and EDA within the broader Siemens Teamcenter ecosystem.
-
-- **[GitLab](https://about.gitlab.com/)**  
-  Widely used DevOps platform (SaaS and self-managed) adopted by many hardware teams for RTL, scripts, and infrastructure-as-code collaboration with CI.
-
-- **[Perforce Helix Core](https://www.perforce.com/products/helix-core)**  
-  High-performance version control frequently chosen for large binary and design-data assets in semiconductor and complex engineering environments.
-
-- **[Aldec HES-DVM](https://www.aldec.com/)**  
-  Hardware emulation and prototyping solutions with collaboration and debug capabilities for SoC verification teams.
-
-- **[DesignSync](https://www.cadence.com/)**  
-  Design data management solution (historically associated with Cadence/Methodics lineage) for tracking IC design files and configurations.
-
-- **[Methodics IPLM](https://www.methodics-eda.com/)**  
-  IP lifecycle management platform focused on semiconductor IP tracking, reuse, and design data governance.
-
-- **[Cliosoft SOS](https://www.cliosoft.com/)**  
-  Design data management and version control system purpose-built for hardware and IC design teams.
-
-- **[OpenLane Cloud / related open-flow hosting](https://github.com/The-OpenROAD-Project)**  
-  Cloud or hosted offerings that package open RTL-to-GDS flows (OpenLane/OpenROAD ecosystem) for collaborative tapeout-oriented design.
+| Platform | Description / Focus | Starting Pricing | Free Tier / Free Trial Limits |
+| :--- | :--- | :--- | :--- |
+| **[Altium 365](https://www.altium.com/altium-365)** | Cloud collaboration platform for PCB and electronics design — shared workspaces, version control, review, and supply-chain data tightly integrated with Altium Designer. | Starts at **$1,990/year** (Altium Develop tier) / **$3,850/seat/year** (Standard Plan) | **30-day free trial** with full platform access (designs lock to read-only post-trial); perpetual free access to web-based **Altium 365 Viewer** (read/markup only). |
+| **[Cadence Cloud](https://www.cadence.com/)** | Cloud EDA environment offering SaaS access to digital/analog design, simulation, and verification tools (OrCAD, Allegro, Clarity, Sigrity). | Starts at **$10/token** via OnCloud (pay-as-you-go packages on 30-day renewal cycles; tool burn rates start at ~0.75 tokens/hr) | **30-day free trial** capped at **8 compute hours** (whichever expires first) for select OnCloud packages. |
+| **[Siemens Teamcenter EDA](https://www.siemens.com/)** | Cloud-native PLM and design data management (Teamcenter X) tailored for semiconductor, PCB, and multi-domain engineering collaboration. | Starts at **$165.38/user/month** (Teamcenter X Essentials tier, billed annually) | **30-day free trial** with pre-configured cloud sandbox, guided tutorials, and sample dataset access. |
+| **[GitLab](https://about.gitlab.com/)** | DevOps & CI/CD platform widely adopted by hardware teams for RTL versioning, continuous verification pipelines, and IP governance. | Starts at **$29/user/month** (Premium tier, billed annually at $348/year); **$0/month** (Free tier) | **Free forever plan**: Up to 5 users/namespace, 400 CI/CD compute minutes/month, and 5 GiB storage/namespace; **30-day free trial** for Ultimate. |
+| **[Perforce Helix Core](https://www.perforce.com/products/helix-core)** | Scalable version control system built for massive binary and IC design repositories (GDSII, OASIS, analog/digital assets). | Starts at **$39/user/month** (P4 Cloud managed SaaS; includes 64 GiB storage); **$0** for self-managed server | **Free forever plan** for up to **5 users and 20 workspaces** (self-hosted / BYO cloud instance); managed P4 Cloud SaaS does not offer a free trial. |
+| **[Aldec HES-DVM](https://www.aldec.com/)** | Hardware emulation, prototyping, and verification platform supporting multi-user simulation acceleration and FPGA prototyping workflows. | Starts at **~$1,500/seat/year** for desktop verification tiers (Riviera-PRO/Active-HDL; enterprise emulation quoted per seat/capacity) | **20-day free evaluation trial** (fully functional, node-locked license tied to MAC address); perpetual free **Student Edition** for coursework. |
+| **[DesignSync](https://www.3ds.com/)** | Semiconductor design data management (ENOVIA / Dassault Systèmes) integrated with EDA frameworks (Cadence Virtuoso, Synopsys) for multi-site IC vaulting. | Starts at **~$345/user/quarter** (~$115/user/month) for entry 3DEXPERIENCE cloud platform access | **14 to 30-day proof-of-concept (PoC) evaluation** upon vendor qualification (guided technical onboarding; no open self-service trial). |
+| **[Methodics IPLM](https://www.perforce.com/products/helix-iplm)** | IP Lifecycle Management platform (Perforce Helix IPLM) delivering IP cataloging, metadata tracking, dependency management, and traceability for SoC teams. | Starts at **~$2,500/user/year** (entry enterprise subscription tier for IP tracking and catalog modules) | **14-day guided proof-of-concept (PoC) trial** with sandbox access upon sales qualification (no public self-serve tier). |
+| **[Cliosoft SOS](https://www.keysight.com/)** | Purpose-built IC design data management and hardware version control platform (now Keysight EDM) supporting analog/mixed-signal and digital EDA flows. | Starts at **~$2,000/seat/year** (entry multi-user licensing bundles for IC design teams) | **30-day evaluation trial license** available via Keysight Knowledge Center registration with host ID validation. |
+| **[OpenLane Cloud / ChipFoundry](https://chipfoundry.io/)** | Turnkey open-silicon shuttle and cloud-hosted RTL-to-GDS flow hosting (ChipFoundry / Tiny Tapeout / OpenROAD ecosystem) for collaborative chip tapeouts. | Starts at **€70/tile** (~$75/tile via Tiny Tapeout) / **$3,500** for ChipIgnite Mini shuttle; OpenLane engine is **$0 (open-source)** | **Free forever tier**: Unlimited local RTL-to-GDS runs via open-source toolchain; shuttle verification CI and DRC/LVS preview checks are free. |
 
 ## Open-Source GitHub Projects
 - **[Git + GitLab CE / Gitea / Forgejo](https://gitlab.com/)**  
